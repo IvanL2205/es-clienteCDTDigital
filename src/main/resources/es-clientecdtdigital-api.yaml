@@ -36,7 +36,7 @@ paths:
               $ref: "#/components/schemas/ClienteCDTDigitalType"
       responses:
         "200":
-          description: Usuario actualizado.
+          description: Usuario creado.
           content:
             application/json:
               schema:
