@@ -64,4 +64,18 @@ public class ClienteCDTDigitalImpl implements IClienteCDTDigital {
         LOG.info("Finaliza el metodo actualizarClienteCdtDigital Impl");
         return clienteCDTDigitalTypeResponse;
     }
+
+    @Transactional
+    public ClienteCDTDigital listarClienteCDTDigital(Integer id) {
+        try {
+            Long clienteID = Long.valueOf(id);
+            LOG.info("Finalizar el metodo eliminarClienteCdtDigital Impl");
+            return clienteCDTDigitalDao.findById(clienteID);
+
+        } catch (ApplicationException e) {
+            LOG.error("Se presento un error en el metodo eliminarClienteCdtDigital Impl" + e.getMessage());
+            throw new ApplicationException(ERROR_SERVICIO + e.getMessage());
+        }
+
+    }
 }

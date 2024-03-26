@@ -101,6 +101,33 @@ paths:
           description: "Parámetros de entrada no validos."
         "404":
           description: "No se encuentra la novedad."
+  #Buscar ClienteCDTDigital
+  /v1/es/buscar/ClienteCDTDigital/{id}:
+    get:
+      tags:
+        - Encontrado ClienteCDTDigital
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The user ID
+      operationId: buscarClienteCDTDigital
+      responses:
+        "200":
+          description: Usuario encontrado.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ClienteCDTDigitalType"
+        "400":
+          description: "Parámetros de entrada no validos."
+        "404":
+          description: "No se encuentra la novedad."
 #---------------------------------------------
 #Se declaran los Modelos/Schemas del servicio
 #---------------------------------------------

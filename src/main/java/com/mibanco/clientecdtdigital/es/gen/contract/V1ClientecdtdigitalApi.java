@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 
 
 @Path("/v1/es")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-03-26T09:50:00.574497500-05:00[America/Bogota]", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-03-26T12:28:23.145806400-05:00[America/Bogota]", comments = "Generator version: 7.4.0")
 public interface V1ClientecdtdigitalApi {
 
     @PUT
@@ -25,6 +25,11 @@ public interface V1ClientecdtdigitalApi {
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     Response actualizarClienteCDTDigital(@PathParam("id") @Min(1) Integer id,@Valid ClienteCDTDigitalTypeResponse clienteCDTDigitalTypeResponse);
+
+    @GET
+    @Path("/buscar/ClienteCDTDigital/{id}")
+    @Produces({ "application/json" })
+    Response buscarClienteCDTDigital(@PathParam("id") @Min(1) Integer id);
 
     @POST
     @Path("/ClienteCDTDigital")

@@ -54,4 +54,16 @@ public class ClienteCDTDigidalController implements V1ClientecdtdigitalApi {
         LOG.info("Finaliza el metodo eliminarClienteCDTDigital");
         return null;
     }
+    @Override
+    public Response buscarClienteCDTDigital(Integer id) {
+        LOG.info("Inicia el metodo listarClienteCdtDigital Controller");
+        try {
+            clienteCDTDigitalImpl.listarClienteCDTDigital(id);
+            return Response.status(Response.Status.OK).build();
+        } catch (ApplicationException e) {
+            LOG.error("Se presento un error en el metodo listarClienteCdtDigital controller" + e.getMessage());
+        }
+        LOG.info("Finaliza el metodo listarClienteCdtDigital");
+        return null;
+    }
 }
