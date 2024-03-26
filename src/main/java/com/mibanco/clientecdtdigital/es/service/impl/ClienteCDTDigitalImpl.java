@@ -13,7 +13,6 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import static com.mibanco.clientecdtdigital.es.constant.Constant.ERROR_SERVICIO;
 
 @ApplicationScoped
