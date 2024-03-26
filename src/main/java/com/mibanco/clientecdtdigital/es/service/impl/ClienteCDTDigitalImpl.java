@@ -1,6 +1,6 @@
 package com.mibanco.clientecdtdigital.es.service.impl;
 
-import com.mibanco.clientecdtdigital.es.controller.ClienteCDTDigidalController;
+import com.mibanco.clientecdtdigital.es.controller.ClienteCDTDigitalControllerGraphQL;
 import com.mibanco.clientecdtdigital.es.dao.ClienteCDTDigitalDao;
 import com.mibanco.clientecdtdigital.es.entity.ClienteCDTDigital;
 import com.mibanco.clientecdtdigital.es.gen.type.ClienteCDTDigitalType;
@@ -14,11 +14,13 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static com.mibanco.clientecdtdigital.es.constant.Constant.ERROR_SERVICIO;
 
 @ApplicationScoped
 public class ClienteCDTDigitalImpl implements IClienteCDTDigital {
-    private  static  final Logger LOG = LoggerFactory.getLogger(ClienteCDTDigidalController.class);
+    private  static  final Logger LOG = LoggerFactory.getLogger(ClienteCDTDigitalControllerGraphQL.class);
     @Inject
     ClienteCDTDigitalMapper clienteCDTDigitalMapper;
     @Inject
@@ -65,5 +67,17 @@ public class ClienteCDTDigitalImpl implements IClienteCDTDigital {
         }
         LOG.info("Finaliza el metodo actualizarClienteCdtDigital Impl");
         return clienteCDTDigitalTypeResponse;
+    }
+    @Transactional
+    public List<ClienteCDTDigital> obtenerClienteCDTDigital() {
+        LOG.info("Inicio obtenerClienteCDTDigital impl");
+        try {
+            List<ClienteCDTDigital> clientes = clienteCDTDigitalDao.listAll();
+            LOG.info("Fin obtenerClienteCDTDigital impl");
+            return clientes;
+        } catch (ApplicationException e) {
+            LOG.error("Se presento un error en el metodo obtenerClienteCDTDigital impl" + e.getMessage());
+            throw new ApplicationException(ERROR_SERVICIO + e.getMessage() + "obtenerClienteCDTDigital impl");
+        }
     }
 }
