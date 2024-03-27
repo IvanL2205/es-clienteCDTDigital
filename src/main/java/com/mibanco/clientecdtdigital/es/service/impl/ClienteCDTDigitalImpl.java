@@ -1,5 +1,5 @@
 package com.mibanco.clientecdtdigital.es.service.impl;
-import com.mibanco.clientecdtdigital.es.controller.ClienteCDTDigidalController;
+import com.mibanco.clientecdtdigital.es.controller.ClienteCDTDigitalController;
 import com.mibanco.clientecdtdigital.es.dao.ClienteCDTDigitalDao;
 import com.mibanco.clientecdtdigital.es.entity.ClienteCDTDigital;
 import com.mibanco.clientecdtdigital.es.gen.type.ClienteCDTDigitalType;
@@ -16,7 +16,7 @@ import static com.mibanco.clientecdtdigital.es.constant.Constant.ERROR_SERVICIO;
 
 @ApplicationScoped
 public class ClienteCDTDigitalImpl implements IClienteCDTDigital {
-    private  static  final Logger LOG = LoggerFactory.getLogger(ClienteCDTDigidalController.class);
+    private  static  final Logger LOG = LoggerFactory.getLogger(ClienteCDTDigitalController.class);
     @Inject
     ClienteCDTDigitalMapper clienteCDTDigitalMapper;
     @Inject
